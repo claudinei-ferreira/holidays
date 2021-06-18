@@ -8,8 +8,9 @@ class Holiday
 {
 
     private $year;
-    private $month;
+    private $month;   
     private $holidays = array();
+    private $repository = array();
 
     
     public function __construct($year, $month)
@@ -45,15 +46,32 @@ class Holiday
     }
 
 
+    /** 
+     * Include holidays or others events from object
+     * @holidays
+     */
+    public function includeHolidays(object $holidays)
+    {
+        foreach($holidays as $holiday){
+            $date = "{$this->year}-{$holiday->date}";
+            $this->setHoliday(strtotime($date), $holiday->title);
+        }    
+    }
+
+
     private function createHolidays()
     {
-        // Feriados da Páscoa e que se baseiam na páscoa
+        // Easter based holidays
         $this->setEasterDate();
 
-        // Feriados Dinâmicos
+        // Dynamic holidays
         $this->setHoliday($this->getSecondSunday(5), "Dia das mães");
         $this->setHoliday($this->getSecondSunday(8), "Dia dos pais");
         $this->setHoliday($this->getProgrammerDay($this->year), "Dia do Programador");
+
+        // Other Holidays
+        $holidays = $this->loadHolidays();
+        $this->includeHolidays($holidays);
     }
 
     private function setHoliday($timestamp, $description)
@@ -84,6 +102,66 @@ class Holiday
         $this->setHoliday(strtotime("+49 days", $easter), "Pentecostes");
         $this->setHoliday(strtotime("+60 days", $easter), "Corpus Cristhi");
     }
+
+    private function loadHolidays()
+    {
+        $this->otherHolidays = [
+            ['date'  => '01-01','title' => 'Confraternização Universal'],
+            ['date' => '01-06','title' => 'Dia de Reis'],
+            ['date' => '01-07','title' => 'Dia do Leitor'],
+            ['date' => '01-31','title' => 'São João Bosco'],
+            ['date' => '03-08','title' => 'Dia da Mulher'],
+            ['date' => '03-12','title' => 'Dia do Bibliotecário'],
+            ['date' => '03-15','title' => 'Dia da Escola'],
+            ['date' => '03-19','title' => 'São José'],
+            ['date' => '04-01','title' => 'Canonização de Dom Bosco (1934)'],
+            ['date' => '04-09','title' => 'Dia da Biblioteca'],
+            ['date' => '04-18','title' => 'Dia de Monteiro Lobato'],
+            ['date' => '04-19','title' => 'Dia do Índio'],
+            ['date' => '04-21','title' => 'Tiradentes'],
+            ['date' => '04-25','title' => 'Dia do Contabilista'],
+            ['date' => '04-28','title' => 'Dia da Educação'],
+            ['date' => '05-01','title' => 'Dia do Trabalho (São José Operário, memória)'],
+            ['date' => '05-06','title' => 'São Domingos Sávio'],
+            ['date' => '05-08','title' => 'Dia do Profissional Marketing'],
+            ['date' => '05-13','title' => 'Santa Maria Domingas Mazzarello'],
+            ['date' => '05-24','title' => 'Nossa Senhora Auxiliadora'],
+            ['date' => '06-03','title' => 'Dia do Profissional de RH'],
+            ['date' => '06-13','title' => 'Dia de Santo Antônio'],
+            ['date' => '06-24','title' => 'Natividade de São João Batista' ],
+            ['date' => '06-29','title' => 'Dia de São Pedro' ],
+            ['date' => '06-29','title' => 'Dia de São Paulo' ],
+            ['date' => '07-09','title' => 'Revolução Constitucionalista de 1932' ],
+            ['date' => '07-14','title' => 'Chegada dos Salesianos no Brasil' ],
+            ['date' => '07-26','title' => 'Dia da Vovó' ],
+            ['date' => '07-27','title' => 'Dia dos Avós' ],
+            ['date' => '08-01','title' => 'Aniversário de Piracicaba'],
+            ['date' => '08-04','title' => 'Dia do Padre'],
+            ['date' => '08-11','title' => 'Dia do Estudante'],
+            ['date' => '08-16','title' => 'Aniversário de Dom Bosco'],
+            ['date' => '08-22','title' => 'Dia do Coordenador Pedagógico'],
+            ['date' => '09-07','title' => 'Dia da Independência'],
+            ['date' => '09-22','title' => 'Dia do Contador'],
+            ['date' => '10-12','title' => 'Nossa Senhora Aparecida'],
+            ['date' => '10-12','title' => 'Dia das Crianças'],
+            ['date' => '10-15','title' => 'Dia do Professor'],
+            ['date' => '10-19','title' => 'Dia do Profissional de TI'],
+            ['date' => '11-01','title' => 'Todos os Santos'],
+            ['date' => '11-02','title' => 'Finados'],
+            ['date' => '11-15','title' => 'Proclamação da República'],
+            ['date' => '11-19','title' => 'Dia da Bandeira'],
+            ['date' => '11-20','title' => 'Dia Da Consciência Negra'],
+            ['date' => '12-04','title' => 'Dia do Orientador Educacional'],
+            ['date' => '12-08','title' => 'Imaculada Conceição'],
+            ['date' => '12-24','title' => 'Véspera de Natal'],
+            ['date' => '12-25','title' => 'Natal'],
+            ['date' => '12-30','title' => 'Sagrada Família, Jesus, Maria e José'],
+            ['date' => '12-31','title' => 'Véspera de Ano Novo']
+        ];
+
+        return json_decode(json_encode((object) $this->otherHolidays), FALSE);
+    }
+
 
     private function getProgrammerDay($year){
         if($this->getIsYearBissexto($year)):
@@ -129,7 +207,6 @@ class Holiday
         if(empty($this->holidays)){
             return null;
         }
-
 
         $arr = $this->holidays;
 
