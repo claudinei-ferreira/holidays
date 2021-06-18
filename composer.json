@@ -1,0 +1,20 @@
+{
+    "name": "claudinei-ferreira/holidays",
+    "description": "Pacote para gera\u0000\u0000o de Feriados de um determinado ano",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Claudinei Ferreira",
+            "email": "claufersus@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "claufersus\\" : "src/"
+        }
+    }
+}
