@@ -212,15 +212,21 @@ class Holiday
 
         $sort = array();
         foreach($arr as $k=>$v) {
-            $sort['day'][$k] = $v['day'];
-            $sort['date'][$k] = $v['date'];
-            $sort['name'][$k] = $v['name'];
+
+            $month = date("n", strtotime($v['date']));
+
+            if($month == $this->month){
+                $sort['day'][$k] = $v['day'];
+                $sort['date'][$k] = $v['date'];
+                $sort['name'][$k] = $v['name'];
+            }    
         }
         array_multisort($sort['day'], SORT_ASC, $sort['date'], SORT_ASC,$arr);
-        $holidays = json_decode(json_encode($arr));	
+        return json_decode(json_encode($arr));	
 		
 		// Retornar apenas os Feriados do mês setado em $this->month		
-		$holidaysData = array();
+		/*
+        $holidaysData = array();
 		foreach($holidays as $holiday){
 			$month = date('n', strtotime($holiday->date));
 			if($month == $this->month){
@@ -232,7 +238,7 @@ class Holiday
 			}				
 		}		
 		return json_decode(json_encode($holidayData));		
-		
+		*/
     }
     
 
