@@ -22,6 +22,7 @@ class Holiday
 
     public function getHolidays()
     {
+        $this->holidays = null;
         $this->createHolidays();
         return $this->reorderHolidays();
     }
