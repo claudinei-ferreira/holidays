@@ -222,23 +222,7 @@ class Holiday
             }    
         }
         array_multisort($sort['day'], SORT_ASC, $sort['date'], SORT_ASC,$arr);
-        return json_decode(json_encode($arr));	
-		
-		// Retornar apenas os Feriados do mês setado em $this->month		
-		/*
-        $holidaysData = array();
-		foreach($holidays as $holiday){
-			$month = date('n', strtotime($holiday->date));
-			if($month == $this->month){
-				$holidayData[] = [
-					'day' => $holiday->day,
-					'date' => $holiday->date,
-					'name' => $holiday->name,
-				];
-			}				
-		}		
-		return json_decode(json_encode($holidayData));		
-		*/
+        return json_decode(json_encode($arr));				
     }
     
 
