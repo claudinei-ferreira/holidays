@@ -1,16 +1,25 @@
 {
     "name": "claufersus/holidays",
     "description": "Pacote para geração de Feriados de um determinado ano",
+    "keywords": [
+        "Calendar",
+        "Holidays"
+    ],
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Claudinei Ferreira",
-            "email": "claufersus@gmail.com"
+            "email": "claufersus@gmail.com",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "ext-gd": "*",
+        "ext-mbstring": "*",
+        "ext-exif": "*"
     },
     "autoload": {
         "psr-4": {
