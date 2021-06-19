@@ -4,30 +4,15 @@ namespace claufersus;
 
 use Exception;
 
-/**
- * Class Claufersus Holiday
- * 
- * @author Claudinei Ferreira de Jesus
- * @package Claufersus\Holiday
- */
 class Holiday
 {
 
-    /** var integer */
     private $year;
-
-    /** var integer */
-    private $month; 
-    
-    /** var array */
+    private $month;   
     private $holidays = array();
-   
+    private $repository = array();
 
     
-    /**
-     * @param $year int
-     * @param $month int
-     */
     public function __construct($year, $month)
     {
         $this->setYear($year);
@@ -63,8 +48,7 @@ class Holiday
 
     /** 
      * Include holidays or others events from object
-     * @param $holidays object
-     * 
+     * @holidays
      */
     public function includeHolidays(object $holidays)
     {
