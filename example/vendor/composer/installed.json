@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "claufersus/holidays",
-            "version": "0.0.9",
-            "version_normalized": "0.0.9.0",
+            "version": "0.1.1",
+            "version_normalized": "0.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/claudinei-ferreira/holidays.git",
-                "reference": "ccfb3b6162cd419b4e89334f9732d364c99e7257"
+                "reference": "1ac0692c54b782b8ac649029e3f07eeefc722d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/claudinei-ferreira/holidays/zipball/ccfb3b6162cd419b4e89334f9732d364c99e7257",
-                "reference": "ccfb3b6162cd419b4e89334f9732d364c99e7257",
+                "url": "https://api.github.com/repos/claudinei-ferreira/holidays/zipball/1ac0692c54b782b8ac649029e3f07eeefc722d8e",
+                "reference": "1ac0692c54b782b8ac649029e3f07eeefc722d8e",
                 "shasum": ""
             },
             "require": {
@@ -21,7 +21,7 @@
                 "ext-mbstring": "*",
                 "php": ">=7.2"
             },
-            "time": "2021-06-19T16:57:12+00:00",
+            "time": "2021-06-19T18:33:39+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -40,14 +40,14 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Pacote para geração de Feriados de um determinado ano",
+            "description": "Package for generating Holidays for a given year and month",
             "keywords": [
                 "calendar",
                 "holidays"
             ],
             "support": {
                 "issues": "https://github.com/claudinei-ferreira/holidays/issues",
-                "source": "https://github.com/claudinei-ferreira/holidays/tree/0.0.9"
+                "source": "https://github.com/claudinei-ferreira/holidays/tree/0.1.1"
             },
             "install-path": "../claufersus/holidays"
         }

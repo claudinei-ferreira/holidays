@@ -1,23 +1,18 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "e04cba9f4cab2dfad10e36aa1be89379",
     "packages": [
         {
             "name": "claufersus/holidays",
-            "version": "0.1.1",
+            "version": "0.0.9",
+            "version_normalized": "0.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/claudinei-ferreira/holidays.git",
-                "reference": "1ac0692c54b782b8ac649029e3f07eeefc722d8e"
+                "reference": "ccfb3b6162cd419b4e89334f9732d364c99e7257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/claudinei-ferreira/holidays/zipball/1ac0692c54b782b8ac649029e3f07eeefc722d8e",
-                "reference": "1ac0692c54b782b8ac649029e3f07eeefc722d8e",
+                "url": "https://api.github.com/repos/claudinei-ferreira/holidays/zipball/ccfb3b6162cd419b4e89334f9732d364c99e7257",
+                "reference": "ccfb3b6162cd419b4e89334f9732d364c99e7257",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +21,9 @@
                 "ext-mbstring": "*",
                 "php": ">=7.2"
             },
+            "time": "2021-06-19T16:57:12+00:00",
             "type": "library",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "claufersus\\": "src/"
@@ -43,25 +40,18 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Package for generating Holidays for a given year and month",
+            "description": "Pacote para geração de Feriados de um determinado ano",
             "keywords": [
                 "calendar",
                 "holidays"
             ],
             "support": {
                 "issues": "https://github.com/claudinei-ferreira/holidays/issues",
-                "source": "https://github.com/claudinei-ferreira/holidays/tree/0.1.1"
+                "source": "https://github.com/claudinei-ferreira/holidays/tree/0.0.9"
             },
-            "time": "2021-06-19T18:33:39+00:00"
+            "install-path": "../claufersus/holidays"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "dev": true,
+    "dev-package-names": []
 }

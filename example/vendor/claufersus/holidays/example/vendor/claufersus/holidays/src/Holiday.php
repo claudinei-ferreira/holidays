@@ -34,9 +34,7 @@ class Holiday
         $this->setMonth($month);        
     }
 
-    /**
-     * Return object of the holidays
-     */
+
     public function getHolidays()
     {        
         $this->createHolidays();
@@ -53,10 +51,6 @@ class Holiday
         }
     }
 
-    /**
-     * @param $year integer
-     * Set the Year
-     */
     public function setYear($year)
     {
         if(is_int($year) && $year >= 1970 && $year <= 2099){
@@ -80,12 +74,7 @@ class Holiday
         }    
     }
 
-    /** 
-     * Method responsible of the send holidays for method setHoliday
-     * Add easterdate
-     * Add Dynamic Holidays
-     * Add Holidays include by user
-     */
+
     private function createHolidays()
     {
         // Easter based holidays
@@ -95,7 +84,7 @@ class Holiday
         $this->setHoliday($this->getSecondSunday(5), "Dia das mães");
         $this->setHoliday($this->getSecondSunday(8), "Dia dos pais");
         $this->setHoliday($this->getProgrammerDay($this->year), "Dia do Programador");
-        
+
         // Other Holidays
         $holidays = $this->loadHolidays();
         if(!empty($holidays)){
@@ -103,11 +92,6 @@ class Holiday
         }
     }
 
-    /**
-     * Method responsible add holiday in array one by one
-     * @param $timestamp => timestamp of the holiday
-     * @param $name => The Name of the holiday     * 
-     */
     private function setHoliday($timestamp, $name)
     {
         if (date("n", $timestamp) == $this->month) {
@@ -120,9 +104,6 @@ class Holiday
         }
     }
 
-    /**
-     * Set easter date of the year and easter based holidays
-     */
     private function setEasterDate()
     {
         // Feriados baseados na páscoa
@@ -139,15 +120,10 @@ class Holiday
         $this->setHoliday(strtotime("+60 days", $easter), "Corpus Cristhi");
     }
 
-    /**
-     * LoadHolidays: load holidays from file json
-     */
     private function loadHolidays()
     {
-        //$file = file_get_contents(__DIR__ . '/holidays.json');
-        //return json_decode(json_encode((object) json_decode($file)), FALSE);
 
-
+        /*
         $this->otherHolidays = [
             ['date'  => '01-01','name' => 'Confraternização Universal'],
             ['date' => '01-06','name' => 'Dia de Reis'],
@@ -203,24 +179,17 @@ class Holiday
             ['date' => '12-31','name' => 'Véspera de Ano Novo']
         ];
 
-
-        $arquivo = 'holidays.json';
-        $json = json_encode($this->otherHolidays);
-        $file = fopen(__DIR__ . '/' . $arquivo,'w');
-        fwrite($file, $json);
-        fclose($file);
-
-
         return json_decode(json_encode((object) $this->otherHolidays), FALSE);
+        */
+
+        $file = file_get_contents(__DIR__ . '/holidays.json');
+        return json_decode(json_encode((object) json_decode($file)), FALSE);
+          
+
+
     }
 
 
-    /**
-     * @param $year integer
-     * @return mktime for programmer day
-     * O 256º dia do ano é o dia que comemoramos a profissão dos que programam.
-     * Muitas vezes é o dia 13 de setembro, mas nos anos bissextos isso cai no dia 12 de setembro.
-     */
     private function getProgrammerDay($year){
         if($this->getIsYearBissexto($year)):
             return mktime(0, 0, 0, 9, 12, $year);
@@ -229,10 +198,6 @@ class Holiday
         endif;
     }
 
-    /** 
-     * @param $year integer
-     * @return boolean 
-     */
     private function getIsYearBissexto($year){
         if(date('L', mktime(0, 0, 0, 1, 1, $year))):
             return true;
@@ -241,10 +206,6 @@ class Holiday
         endif;
     }
 
-    /**
-     * @param $month integer
-     * @return mktime of the second sunday of the month
-     */
     private function getSecondSunday($month)
     {
         $timestamp = strtotime("-1 day", mktime(0, 0, 0, $month, 1, $this->year));
@@ -267,9 +228,7 @@ class Holiday
         }
     }
 
-    /**
-     * Return array of Holidays in order of the day
-     */
+
     private function reorderHolidays()
     {
         if(empty($this->holidays)){

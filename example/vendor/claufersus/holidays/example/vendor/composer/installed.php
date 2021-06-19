@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
+    'reference' => 'ccfb3b6162cd419b4e89334f9732d364c99e7257',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,16 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
+      'reference' => 'ccfb3b6162cd419b4e89334f9732d364c99e7257',
     ),
     'claufersus/holidays' => 
     array (
-      'pretty_version' => '0.1.1',
-      'version' => '0.1.1.0',
+      'pretty_version' => '0.0.9',
+      'version' => '0.0.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
+      'reference' => 'ccfb3b6162cd419b4e89334f9732d364c99e7257',
     ),
   ),
 );

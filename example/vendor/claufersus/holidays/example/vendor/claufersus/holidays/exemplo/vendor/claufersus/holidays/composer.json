@@ -1,6 +1,6 @@
 {
     "name": "claufersus/holidays",
-    "description": "Package for generating Holidays for a given year and month",
+    "description": "Pacote para geração de Feriados de um determinado ano",
     "keywords": [
         "Calendar",
         "Holidays"

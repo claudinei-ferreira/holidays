@@ -14,33 +14,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
-    'name' => '__root__',
+    'reference' => NULL,
+    'name' => 'claudinei-ferreira/holidays',
   ),
   'versions' => 
   array (
-    '__root__' => 
+    'claudinei-ferreira/holidays' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
-    ),
-    'claufersus/holidays' => 
-    array (
-      'pretty_version' => '0.1.1',
-      'version' => '0.1.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '1ac0692c54b782b8ac649029e3f07eeefc722d8e',
+      'reference' => NULL,
     ),
   ),
 );
