@@ -21,10 +21,9 @@ class Holiday
 
 
     public function getHolidays()
-    {
-        $this->holidays = null;
+    {        
         $this->createHolidays();
-        return $this->reorderHolidays();
+        return $this->reorderHolidays();		
     }
 
 
@@ -55,7 +54,7 @@ class Holiday
     {
         foreach($holidays as $holiday){
             $date = "{$this->year}-{$holiday->date}";
-            $this->setHoliday(strtotime($date), $holiday->name);
+			$this->setHoliday(strtotime($date), $holiday->name);			
         }    
     }
 
@@ -84,7 +83,6 @@ class Holiday
                 'date' => date('Y-m-d', $timestamp),
                 'name' => $name,
             ];
-
         }
     }
 
@@ -219,7 +217,22 @@ class Holiday
             $sort['name'][$k] = $v['name'];
         }
         array_multisort($sort['day'], SORT_ASC, $sort['date'], SORT_ASC,$arr);
-        return json_decode(json_encode($arr));
+        $holidays = json_decode(json_encode($arr));	
+		
+		// Retornar apenas os Feriados do mês setado em $this->month		
+		$holidaysData = array();
+		foreach($holidays as $holiday){
+			$month = date('n', strtotime($holiday->date));
+			if($month == $this->month){
+				$holidayData[] = [
+					'day' => $holiday->day,
+					'date' => $holiday->date,
+					'name' => $holiday->name,
+				];
+			}				
+		}		
+		return json_decode(json_encode($holidayData));		
+		
     }
     
 
