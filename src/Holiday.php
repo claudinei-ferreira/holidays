@@ -21,6 +21,9 @@ class Holiday
     
     /** var array */
     private $holidays = array();
+
+    /** var string */
+    private $version = "0.1.3";
    
 
     

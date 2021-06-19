@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . "/../src/Holiday.php";
 
 use claufersus\Holiday;
 
@@ -58,6 +58,5 @@ for($i=1; $i <= 12; $i++){
     }else{
         echo "Não há feriados para o mês informado";
     }
-
 
 }
