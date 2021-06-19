@@ -87,7 +87,9 @@ class Holiday
 
         // Other Holidays
         $holidays = $this->loadHolidays();
-        $this->includeHolidays($holidays);
+        if(!empty($holidays)){
+            $this->includeHolidays($holidays);
+        }
     }
 
     private function setHoliday($timestamp, $name)
@@ -120,6 +122,8 @@ class Holiday
 
     private function loadHolidays()
     {
+
+        /*
         $this->otherHolidays = [
             ['date'  => '01-01','name' => 'Confraternização Universal'],
             ['date' => '01-06','name' => 'Dia de Reis'],
@@ -176,6 +180,13 @@ class Holiday
         ];
 
         return json_decode(json_encode((object) $this->otherHolidays), FALSE);
+        */
+
+        $file = file_get_contents(__DIR__ . '/holidays.json');
+        return json_decode(json_encode((object) json_decode($file)), FALSE);
+          
+
+
     }
 
 
